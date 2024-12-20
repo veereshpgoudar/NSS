@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnPro | Your Learning Companion</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      bottom: 0;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #4e54c8;
+      trasition: none;
+      font-size: 16px;
+    }
+    .hero {
+  background: radial-gradient(circle, #d3d3d3, #f5f5f5); /* Light gray to white */
+  height: 300px;
+  display: flex;
+  flex-direction: column; /* Changes layout to vertical */
+  justify-content: center;
+  align-items: center;
+  color: #333; /* Dark gray text */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7); /* Subtle text shadow */
+}
+
+.hero h2 {
+  font-size: 28px;
+  margin: 10px 0; /* Adds spacing between the h2 elements */
+}
+  
+    .features {
+      padding: 20px;
+    }
+    .features h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .feature-card {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 10px 0;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      transform: scale(1.02);
+    }
+    .feature-icon {
+      font-size: 36px;
+      margin-right: 15px;
+      color: #4e54c8;
+    }
+    .feature-text {
+      flex: 1;
+    }
+    .feature-text h3 {
+      margin: 0;
+    }
+    .cta {
+      text-align: center;
+      padding: 20px;
+      background: #8f94fb;
+      color: white;
+    }
+    .cta button {
+      background: #4e54c8;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta button:hover {
+      background: #383b96;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #666;
+      background: #f3f4f6;
+    }
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 15px;
+        text-align: center;
+      }
+      .feature-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .feature-icon {
+        margin-bottom: 10px;
+      }
+    }
+  
+  
+  header h1 {
+  overflow: hidden; /* Hides the text initially */
+  white-space: nowrap; /* Prevents wrapping of the text */
+  border-right: 3px solid currentColor; /* Simulates a typing cursor */
+  animation: typing 2s steps(30, end), blink 6s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: currentColor;
+  }
+}
+  
+  
+  .hero h2 {
+  opacity: 0;
+  transform: translateX(-100%);
+  filter: blur(10px);
+  animation: slideBlur 1s ease-in-out forwards;
+}
+
+.hero h2:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.hero h2:nth-child(2) {
+  animation-delay: 1.1s;
+}
+
+.hero h2:nth-child(3) {
+  animation-delay: 1.2s;
+}
+  
+.hero h2:nth-child(4) {
+  animation-delay: 1.3s;
+}
+@keyframes slideBlur {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+  
+  
+  #vee {
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  animation: bounceIn 1.5s ease-in-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+  
+  /* Define the animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Initially, set the element to be off-screen */
+.feature-card {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* Add class to trigger animation */
+.feature-card.visible {
+  animation: slideIn 1s forwards;
+}
+  
+  
+    /* Style for the images and animation */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.animated-image {
+    width: 150px;  /* Fixed size for all images */
+    height: 150px; /* Fixed size for all images */
+    object-fit: cover;  /* Ensures the image covers the area while maintaining aspect ratio */
+    opacity: 0;
+    filter: grayscale(100%); /* Monochrome effect */
+    animation: fadeIn 2s ease-in-out forwards;
+    transition: transform 0.3s ease-in-out, filter 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Transition for scaling, color change, and box-shadow */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Animation for fading in the images */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation on hover to scale the image, change to original color, and add edge color grading */
+.animated-image:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%); /* Original color when hovered */
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.7); /* Edge color grading effect (orange) */
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    .animated-image {
+        max-width: 90%;
+    }
+}
+  
+    /* CSS for Smooth Animations */
+    #live-classes-content {
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.video-element {
+    width: 20%; /* Smaller default width */
+    max-width: 100%;
+    border-radius: 8px; /* Slightly reduced radius */
+    box-shadow: 0 0 10px 3px rgba(0, 255, 255, 0.6); /* Softer neon effect */
+    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Hover Effect */
+.video-element:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px 6px rgba(0, 255, 255, 0.9); /* Stronger effect on hover */
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 1200px) {
+    .video-element {
+        width: 35%; /* Medium screens: videos slightly larger */
+    }
+}
+
+@media (max-width: 768px) {
+    .video-element {
+        width: 90%; /* Small screens: nearly full width */
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Gesture Support */
+.video-container {
+    touch-action: manipulation;
+}
+  
+  
+  
+
+</style>
+</head>
+<body>
+  <header>
+    <h1>NSS CAMP 2024</h1>
+  </header>
+
+  <center>
+  <section class="hero">
+    <h1>SUBMITTED BY</h1>
+    <h2>VEERESH P GOUDAR</h2>
+    <h2>SUMITH S POOJARI</h2>
+    <h2>B M MANOJ</h2>
+    <h2>VEERENDRA GOUDRA</h2>
+  </section>
+  </center>
+
+  <section class="features">
+  <h2 id="vee">GEC NSS</h2>
+  <div class="feature-card" onclick="showJavaContent()">
+    <div class="feature-icon"></div>
+    <div class="feature-text">
+      <h3>GALLERY</h3>
+      <p>Images of NSS camp</p>
+    </div>
+  </div>
+  <div class="feature-card" onclick="showLiveClassesContent()">
+    <div class="feature-icon"></div>
+    <div class="feature-text">
+      <h3>GALLERY</h3>
+      <p>Videos of NSS Camp</p>
+    </div>
+  </div>
+  <div class="feature-card" onclick="showAdaptiveLearning()">
+    <div class="feature-icon"></div>
+    <div class="feature-text">
+      <h3>About NSS</h3>
+      <p>about nss with camping locations</p>
+    </div>
+  </div>
+</section>
+
+<!-- Java Section -->
+<section id="java-content" style="display:none; padding: 20px; background: black;">
+ 
+  <div class="image-container">
+        <img src="photo1.jpg" alt="Image 1" class="animated-image">
+        <img src="photo2.jpg" alt="Image 2" class="animated-image">
+        <img src="photo3.jpg" alt="Image 3" class="animated-image">
+         <img src="photo4.jpg" alt="Image 4" class="animated-image">
+         <img src="photo9.jpg" alt="Image 9" class="animated-image">
+        <img src="photo5.jpg" alt="Image 5" class="animated-image">
+        <img src="photo6.jpg" alt="Image 6" class="animated-image">
+        <img src="photo7.jpg" alt="Image 7" class="animated-image">
+        <img src="photo8.jpg" alt="Image 8" class="animated-image">
+        <img src="photo16.jpg" alt="Image 8" class="animated-image">
+    <img src="photo15.jpg" alt="Image 8" class="animated-image">
+        <img src="photo10.jpg" alt="Image 8" class="animated-image">
+        <img src="photo11.jpg" alt="Image 8" class="animated-image">
+        <img src="photo12.jpg" alt="Image 8" class="animated-image">
+        <img src="photo13.jpg" alt="Image 8" class="animated-image">
+      <img src="photo17.jpg" alt="Image 8" class="animated-image">
+      <img src="photo14.jpg" alt="Image 8" class="animated-image">
+      <img src="photo21.jpg" alt="Image 8" class="animated-image">
+       <img src="photo22.jpg" alt="Image 8" class="animated-image">
+      <img src="photo23.jpg" alt="Image 8" class="animated-image">
+  <img src="photo24.jpg" alt="Image 8" class="animated-image">
+  <img src="photo25.jpg" alt="Image 8" class="animated-image">
+  <img src="photo26.jpg" alt="Image 8" class="animated-image">
+  
+  </div>  
+  
+  
+  
+  
+</section>
+
+<!-- Live Classes Section -->
+<section id="live-classes-content" style="display:none; padding: 20px; background: black;">
+   <div class="video-container">
+        <video id="video1" class="video-element" controls>
+            <source src="vd1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="video2" class="video-element" controls>
+            <source src="vd2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+     <video id="video3" class="video-element" controls>
+            <source src="vd3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+     <video id="video4" class="video-element" controls>
+            <source src="vd4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+     <video id="video5" class="video-element" controls>
+            <source src="vd5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+<!-- Autoboxing Expression Section -->
+<section id="autoboxing-expression" style="display:none; padding: 20px; background: gray;">
+  <h2 id="nss-title"></h2>
+  <p id="nss-description"></p>
+  <p id="nss-initiatives"></p>
+  <h3 id="nss-locations-title"></h3>
+  <ul>
+    <li id="nss-location-1"></li>
+    <li id="nss-location-2"></li>
+    <li id="nss-location-3"></li>
+  </ul>
+  <p id="nss-conclusion"></p>
+</section>
+  
+  
+<footer>
+  <p>&copy; 2024 GECHOOVINAHADAGALI. All rights reserved.</p>
+</footer>
+
+<script>
+ // Function to show Java content section
+function showJavaContent() {
+  hideAllSections();
+  document.getElementById('java-content').style.display = 'block';
+  scrollToBottom();
+}
+
+// Function to show Live Classes content section
+function showLiveClassesContent() {
+  hideAllSections();
+  document.getElementById('live-classes-content').style.display = 'block';
+  scrollToBottom();
+}
+
+// Function to show Adaptive Learning content section
+function showAdaptiveLearning() {
+  hideAllSections();
+  document.getElementById('autoboxing-expression').style.display = 'block';
+  scrollToBottom();
+  startTypewriterAnimation(); // Start typewriter effect when this section is shown
+}
+
+// Function to hide all sections
+function hideAllSections() {
+  document.getElementById('java-content').style.display = 'none';
+  document.getElementById('live-classes-content').style.display = 'none';
+  document.getElementById('autoboxing-expression').style.display = 'none';
+}
+
+// Function to scroll to the bottom of the page smoothly
+function scrollToBottom() {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+// Function to check if the element is in the viewport
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
+
+// Function to add the 'visible' class when the element comes into the viewport
+function checkScroll() {
+  const featureCards = document.querySelectorAll('.feature-card');
+  
+  featureCards.forEach(card => {
+    if (isInViewport(card)) {
+      card.classList.add('visible');
+    }
+  });
+}
+
+// Check for elements when scrolling
+window.addEventListener('scroll', checkScroll);
+
+// Initial check for elements already in the viewport
+checkScroll();
+
+// Gesture Support: Swipe to Change Videos (Optional, based on your existing structure)
+document.querySelector('.video-container').addEventListener('touchstart', function (e) {
+  let startX = e.touches[0].clientX;
+
+  this.addEventListener('touchend', function (e) {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) {
+      // Swipe left, show next video
+      // Logic to change or pause the video without alert
+    }
+    if (endX - startX > 50) {
+      // Swipe right, show previous video
+      // Logic to change or pause the video without alert
+    }
+  });
+});
+
+// Typewriter Animation for the Adaptive Learning Section
+// Typewriter Animation for the Adaptive Learning Section
+function startTypewriterAnimation() {
+  const elements = [
+    { id: 'nss-title', text: 'About NSS and NSS Camp Locations' },
+    { id: 'nss-description', text: 'The National Service Scheme (NSS) is an Indian government-sponsored public service program conducted by the Ministry of Youth Affairs and Sports. It aims to instill the spirit of social responsibility, discipline, and volunteerism among students while promoting community service and personal development. NSS provides a platform for students to engage in meaningful activities that contribute to the betterment of society.' },
+    { id: 'nss-initiatives', text: 'As part of its initiatives, NSS organizes camps to immerse students in rural and community development projects. These camps help students connect with the local populace and address key societal challenges through active participation and collaboration.' },
+    { id: 'nss-locations-title', text: 'NSS Camp Locations' },
+    { id: 'nss-location-1', text: 'Hirehadagali: Known for its serene environment and rich cultural heritage, this location offers students an opportunity to engage in community service while appreciating the local traditions and practices.' },
+    { id: 'nss-location-2', text: 'Singatalur: A prominent village with vibrant community life, Singatalur provides a unique platform for students to contribute to developmental initiatives and social welfare projects.' },
+    { id: 'nss-location-3', text: 'GEC Hoovinahadagali: Situated within the premises of the Government Engineering College, this camp location focuses on fostering teamwork and practical problem-solving skills among participants while addressing societal issues within the campus and nearby areas.' },
+    { id: 'nss-conclusion', text: 'These NSS camps not only empower students to make a positive impact but also instill valuable life skills such as leadership, adaptability, and empathy, making them well-rounded individuals ready to contribute to nation-building.' }
+  ];
+
+  let totalTextLength = 0;
+  elements.forEach(element => {
+    totalTextLength += element.text.length;
+  });
+
+  // 4 seconds (4000ms) to type all characters
+  const totalTypingTime = 9000; // 4 seconds
+  const typingSpeed = totalTypingTime / totalTextLength; // milliseconds per character
+
+  let currentElementIndex = 0;
+  let currentCharIndex = 0;
+  const delayBetweenElements = 200; // milliseconds between elements
+
+  function typeWriterEffect() {
+    const element = document.getElementById(elements[currentElementIndex].id);
+    const currentText = elements[currentElementIndex].text;
+    
+    if (!element) return;
+
+    // Type out the current text
+    if (currentCharIndex < currentText.length) {
+      element.innerHTML += currentText.charAt(currentCharIndex);
+      currentCharIndex++;
+      setTimeout(typeWriterEffect, typingSpeed);
+    } else {
+      // Move to the next element
+      currentElementIndex++;
+      currentCharIndex = 0;
+      if (currentElementIndex < elements.length) {
+        setTimeout(typeWriterEffect, delayBetweenElements); // Delay before next element starts
+      }
+    }
+  }
+
+  // Initialize all elements with empty content for the effect
+  elements.forEach(element => {
+    const el = document.getElementById(element.id);
+    if (el) {
+      el.innerHTML = ''; // Clear content initially
+    }
+  });
+
+  typeWriterEffect(); // Start the typing effect when the page loads
+}
+</script>
+</body>
+</html>
